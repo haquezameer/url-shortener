@@ -8,8 +8,10 @@ const validUrl = require('valid-url');
 const {mongoose} = require('./db/mongoose');
 const {url} = require('./model/url');
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/',(req,res) => {
-  res.send("Hello world");
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/new/*',(req,res) => {
