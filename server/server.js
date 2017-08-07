@@ -13,18 +13,19 @@ app.get('/',(req,res) => {
 });
 
 app.get('/new/*',(req,res) => {
-  const requrl = req.params[0];
-  if(validUrl.isHttpUri(requrl) || validUrl.isHttpsUri(requrl))
+  const original_url = req.params[0];
+  if(validUrl.isHttpUri(original_url) || validUrl.isHttpsUri(original_url))
   {
-      let hostname = req.hostname;
-      Math.seedrandom(requrl);
+      const hostname = req.get('host');
+      const protocol = req.protocol;
+      Math.seedrandom(original_url);
       const now = Date.now();
       const rnum = Math.floor(Math.random() * (now/10000000));
-      hostname = hostname + ':3000/' + rnum;
+      const short_url = protocol + '://' + hostname + '/' + rnum;
       var newurl = new url({
-            url : requrl,
-            rnum : rnum,
-            hostname : hostname
+            original_url,
+            rnum,
+            short_url
       });
       newurl.save().then((savedurl) => {
             res.send(savedurl);
@@ -39,7 +40,7 @@ app.get('/:shorturl',(req,res) => {
   if(!isNaN(req.params.shorturl)){
     let rnum = Number(req.params.shorturl);
       url.findOne({rnum}).then((url) => {
-        res.redirect(url.url);
+        res.redirect(url.original_url);
       }).catch((e) => res.status(404).send(e));
     }
     else{
