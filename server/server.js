@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const app = express();
 const seedrandom = require('seedrandom');
@@ -45,6 +47,6 @@ app.get('/:shorturl',(req,res) => {
     }
 });
 
-app.listen('3000',() => {
+app.listen(process.env.PORT,() => {
   console.log('Server started!');
 });
