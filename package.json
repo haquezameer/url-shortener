@@ -13,6 +13,7 @@
     "lodash": "^4.17.4",
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.5",
-    "seedrandom": "^2.4.3"
+    "seedrandom": "^2.4.3",
+    "valid-url": "^1.0.9"
   }
 }
