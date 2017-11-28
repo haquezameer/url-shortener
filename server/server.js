@@ -51,5 +51,5 @@ app.get('/:shorturl',(req,res) => {
 });
 
 app.listen(process.env.PORT,() => {
-  console.log('Server started!');
+  console.log(`Server started at localhost:${process.env.PORT}`);
 });
