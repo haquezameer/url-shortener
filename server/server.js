@@ -20,9 +20,10 @@ app.get('/new/*',(req,res) => {
   {
       const hostname = req.get('host');
       const protocol = req.protocol;
-      url.findOne({original_url: original_url},(err,foundUrl) => {
+      url.findOne({original_url},(err,foundUrl) => {
         if(foundUrl != null) {
           res.send(foundUrl);
+          return;
         }
           Math.seedrandom(original_url);
           const now = Date.now();
