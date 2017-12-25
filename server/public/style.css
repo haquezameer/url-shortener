@@ -1,37 +1,37 @@
 * {
-  box-sizing: border-box;
+    font-family: helvetica, arial, sans-serif;
 }
-
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 25px;
+.form_div {
+    padding: 20px;
+    background: #e0e0e0;
+    display: block;
+    text-align: center;
+    margin: 20px auto 20px auto;
+    font-size: 1.2em;
 }
-
 h1 {
-  font-weight: bold;
-  color: pink;
+    color: #311b92;
 }
-
-.bold {
-  font-weight: bold;
+h1, h2 {
+    text-align: center;
 }
-
-p {
-  max-width: 600px;
+input,button {
+    margin: 10px 20px 10px 20px;
+    font-size: 1.2em;
+    background: #ffffff;
+    text-decoration: none;
+    border: solid 3px black;
+    padding: 10px;
 }
-
+#input_link,#output_link {
+    border: none;
+    border-bottom: solid 3px black;
+}
 footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
+    position: fixed;
+    margin-bottom: 10px;
+    bottom: 0px;
 }
-
 footer > a {
-  color: #311b92;
-}
-
-.usage{
-  padding: 10px;
-  margin: 10px;
-  background-color: #e0e0e0;
-}
+    color: #311b92;
+  }
