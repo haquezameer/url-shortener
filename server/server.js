@@ -11,7 +11,7 @@ const {url} = require('./model/url');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/',(req,res) => {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile(__dirname + '/views/indexMod.html');
 });
 
 app.get('/new/*',(req,res) => {
