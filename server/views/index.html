@@ -2,14 +2,23 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.js"></script>      	
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.js"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>URL Shortener</title>
     </head>
     <body>
-    <h1>URL shortener</h1>
+      <div class="topnav" id="myTopnav">
+  <a class="navbar-brand" href="#"><img src="Logo.png" height="50"  class="d-inline-block align-top" alt="LogoByUs"></a><a href="#">URL Shortener</a>
+    <a href="#news">Login</a>
+    <a href="#contact">Signup</a>
+    <a href="#about">About</a>
+  </div>
+  <hr>
     <div class = "form_div" id = "input_div">
-        <h2>Enter a link and submit it to get a short version</h2>
+        <h2>Enter a link here</h2>
         <form id = "input_form">
             <input id="input_link" placeholder="https://www.google.com">
             <input id = "submit_link" type="submit">
@@ -23,7 +32,7 @@
         </button>
     </div>
     <footer>
-      Made by <a href="https://github.com/zamhaq" target="_blank">zamhaq </a> 
+      Made by <a href="https://github.com/zamhaq" target="_blank">zamhaq </a>
     </footer>
     </body>
         <script src="/script.js"></script>
