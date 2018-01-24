@@ -11,7 +11,7 @@ const {url} = require('./model/url');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/',(req,res) => {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile(__dirname + '/views/indexMod.html');
 });
 
 app.get('/new/*',(req,res) => {
@@ -20,18 +20,24 @@ app.get('/new/*',(req,res) => {
   {
       const hostname = req.get('host');
       const protocol = req.protocol;
-      Math.seedrandom(original_url);
-      const now = Date.now();
-      const rnum = Math.floor(Math.random() * (now/10000000));
-      const short_url = protocol + '://' + hostname + '/' + rnum;
-      var newurl = new url({
-            original_url,
-            rnum,
-            short_url
+      url.findOne({original_url},(err,foundUrl) => {
+        if(foundUrl != null) {
+          res.send(foundUrl);
+          return;
+        }
+          Math.seedrandom(original_url);
+          const now = Date.now();
+          const rnum = Math.floor(Math.random() * (now/10000000));
+          const short_url = protocol + '://' + hostname + '/' + rnum;
+          var newurl = new url({
+                original_url,
+                rnum,
+                short_url
+          });
+          newurl.save().then((savedurl) => {
+                res.send(savedurl);
+            }).catch((e) => res.send(e));
       });
-      newurl.save().then((savedurl) => {
-            res.send(savedurl);
-        }).catch((e) => res.send(e));
     }
     else{
       res.status(400).send('Invalid URL');
